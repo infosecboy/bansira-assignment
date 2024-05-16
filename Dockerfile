@@ -12,10 +12,7 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Build the application (if applicable, here it's not needed but it's for illustration)
-# RUN npm run build
-
-# Stage 2: Production
+# Stage 2: Deployment
 FROM node:14-alpine
 
 WORKDIR /app
@@ -26,5 +23,5 @@ COPY --from=build /app /app
 # Expose the application port
 EXPOSE 3000
 
-# Run the application
+
 CMD ["npm", "start"]
